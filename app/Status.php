@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 class Status extends Model
 {
     protected $guarded = [];
-    public $timestamps=false;
     
 
     

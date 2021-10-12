@@ -9,7 +9,7 @@ class Category extends Model
 {
     protected $fillable = ['name', 'slug'];
 
-   public $timestamps=false;
+   
 
     public function getNameAttribute($value)
     {

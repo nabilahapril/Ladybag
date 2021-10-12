@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Product extends Model
 {
     protected $guarded = [];
-    public $timestamps=false;
+
     
 
     public function setSlugAttribute($value)

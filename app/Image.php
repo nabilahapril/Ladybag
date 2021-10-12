@@ -9,7 +9,6 @@ class Image extends Model
 {
     protected $guarded = [];
 
-    public $timestamps=false;
 
     public function setSlugAttribute($value)
     {
