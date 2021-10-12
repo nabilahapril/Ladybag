@@ -13,7 +13,7 @@
 
 
 Auth::routes();
-
+Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::resource('category', 'CategoryController')->except(['create', 'show']);
@@ -35,4 +35,4 @@ Auth::routes();
         Route::get('/order/pdf/{daterange}', 'HomeController@orderReportPdf')->name('report.order_pdf');
        
     });
-
+});
