@@ -44,5 +44,8 @@
                 <i class="nav-icon icon-logout"></i>  Logout
             </a>
         </li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
     </ul>
 </nav>
