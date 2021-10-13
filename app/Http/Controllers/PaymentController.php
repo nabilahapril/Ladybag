@@ -29,10 +29,10 @@ class PaymentController extends Controller
 
     public function view($cart_id)
     {
-        $line_item_clone=line_item_clone::where('cart_id', $cart_id);
+        $payment = Payment::where('cart_id', $cart_id);
         $status = Status::get();
         $district= District::get();
-        $payment = Payment::where('cart_id', $cart_id);
+        $line_item_clone=line_item_clone::where('cart_id', $cart_id);
         $user=User::get();
         return view('payments.view', compact('payment', 'district','status','line_item_clone','user'));
     }
