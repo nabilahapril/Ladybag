@@ -37,11 +37,12 @@ class PaymentController extends Controller
         return view('payments.view', compact('payment', 'district','status','line_item_clone','user'));
     }
 
-    public function destroy($id)
+    public function destroy($cart_id)
     {
-        $cart = Cart::find($id);
-        $cart->forget();
-       
+        $payment = Payment::where('cart_id', $cart_id)->first();
+        $payment->delete();
+        $line_item_clone=line_item_clone::where('cart_id', $cart_id)->get();
+        $lne_item_clone->delete();       
         return redirect(route('payments.index'));
     }
 
@@ -56,8 +57,7 @@ class PaymentController extends Controller
     {
         $payment = Payment::with(['user'])->find($request->payment_id);
         $payment->update(['status_id' => 2]);
-        $cart = Cart::where('cart_id', $id)->get();
-        $cart->delete();
+       
         return redirect()->back();
     }
 

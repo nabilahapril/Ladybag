@@ -74,14 +74,13 @@
                                                
                                             </td>
                                             <td>
-                                            
-                                                <form action="{{ route('payments.destroy', $row->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    @if ($row->status_id == 2)
+                                            @if ($row->status_id == 2)
                                             <a href="{{ route('payments.approve_payment', $row->id) }}" class="btn btn-primary btn-sm">Terima Pembayaran</a>
                                             @endif
-                                                         <a href="{{ route('payments.view', $row->cart_id) }}" class="btn btn-warning btn-sm">Lihat</a>
+                                            <a href="{{ route('payments.view', $row->cart_id) }}" class="btn btn-warning btn-sm">Lihat</a>
+                                                <form action="{{ route('payments.destroy', $row->cart_id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
                                                     <button class="btn btn-danger btn-sm">Hapus</button>
                                                 </form>
                                             </td>

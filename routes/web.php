@@ -24,9 +24,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['prefix' => 'payments'], function() {
         Route::get('/', 'PaymentController@index')->name('payments.index');
         Route::get('/{cart_id}', 'PaymentController@view')->name('payments.view');
-        Route::get('/payment/cart_id}', 'PaymentController@acceptPayment')->name('payments.approve_payment');
+        Route::get('/payment/{id}', 'PaymentController@acceptPayment')->name('payments.approve_payment');
         Route::post('/payments.done', 'PaymentController@done')->name('payments.done');
-        Route::delete('/cart_id}', 'PaymentController@destroy')->name('payments.destroy');
+        Route::delete('/{cart_id}', 'PaymentController@destroy')->name('payments.destroy');
       
     });
 
