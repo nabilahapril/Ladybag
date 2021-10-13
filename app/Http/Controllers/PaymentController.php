@@ -32,7 +32,7 @@ class PaymentController extends Controller
         $payment = Payment::find($cart_id);
         $status = Status::get();
         $district= District::get();
-        $line_item_clone=line_item_clone::find($cart_id);
+        $line_item_clone=line_item_clone::where('cart_id', $cart_id)->get();
         $user=User::get();
         return view('payments.view', compact('payment', 'district','status','line_item_clone','user'));
     }
