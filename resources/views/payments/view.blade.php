@@ -78,7 +78,8 @@
                                         </tr>
                                         @foreach ($line_item_clone as $row)
                                         <tr>
-                                          
+                                        <td>{{ $row->Image->product->name }}</td>
+                                        <td>{{ $row->Image->warna }}</td>
                                             <td>{{ $row->quantity }}</td>
                                         </tr>
                                         @endforeach

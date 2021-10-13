@@ -29,7 +29,7 @@ class PaymentController extends Controller
 
     public function view($cart_id)
     {
-        $payment = Payment::where('cart_id', $cart_id)->first();;
+        $payment = Payment::where('cart_id', $cart_id)->get();
         $status = Status::get();
         $district= District::get();
         $line_item_clone=line_item_clone::where('cart_id', $cart_id)->get();
