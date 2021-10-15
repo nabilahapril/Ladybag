@@ -49,10 +49,13 @@
                                                         <td>{{ $no }}</td>
                                             <td>
                                             <label><strong>Nama:</strong> {{ $row->name }}</label><br>
-                                                <label><strong>Email:</strong> {{ $row->email }}</label>
+                                                
                                             </td>
-                                            <td> <label><strong>{{ $row->title}}</label><br>
-                                                 <label><strong>{{$row->review}}</label></td>
+                                            <td>
+                                            <label><strong>Email:</strong> {{ $row->email }}</label>
+                                            </td>
+                                            <td> <label><strong>Judul:</strong> {{ $row->title}}</label><br>
+                                                 <label><strong>Review:</strong> {{$row->review}}</label></td>
                                             
                                            
                                             <td>
