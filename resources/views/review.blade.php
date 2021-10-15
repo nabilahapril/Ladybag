@@ -48,15 +48,16 @@
                                                     <tr>
                                                         <td>{{ $no }}</td>
                                             <td>
-                                            <label><strong>Nama:</strong> {{ $row->username }}</label><br>
+                                            <label><strong>Nama:</strong> {{ $row->name }}</label><br>
                                                 <label><strong>Email:</strong> {{ $row->email }}</label>
                                             </td>
-                                            <td> {{ $row->review}}</td>
+                                            <td> <label><strong>{{ $row->title}}</label><br>
+                                                 <label><strong>{{$row->review}]</label></td>
                                             
                                            
                                             <td>
                                            
-                                                <form action="{{ route('payments.destroy', $row->cart_id) }}" method="post">
+                                                <form action="{{ route('review.destroy', $row->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                   

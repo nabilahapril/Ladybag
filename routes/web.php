@@ -21,6 +21,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('image', 'ImageController')->except(['show']);
     Route::resource('users', 'UserController')->except(['show']);
     Route::resource('ongkos', 'OngkosController')->except(['show']);
+    Route::resource('review', 'ReviewController')->except(['show']);
     Route::group(['prefix' => 'payments'], function() {
         Route::get('/', 'PaymentController@index')->name('payments.index');
         Route::get('/{cart_id}', 'PaymentController@view')->name('payments.view');
