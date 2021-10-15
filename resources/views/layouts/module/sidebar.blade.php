@@ -40,7 +40,7 @@
         </li>
         <li class="nav-item ">
         <a class="nav-link" href="{{ route('review.index') }}">
-                <i class="nav-icon icon-basket-loaded"></i> Review 
+                <i class="nav-icon icon-envelope"></i> Review 
             </a>
         </li>
         <li class="nav-item ">

@@ -73,7 +73,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {!! $feedbacks->links() !!}
                         </div>
                     </div>
                 </div>

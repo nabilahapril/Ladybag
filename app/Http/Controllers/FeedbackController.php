@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Review;
+use App\Feedback;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 
-class ReviewController extends Controller
+class FeedbackController extends Controller
 {
     public function index()
     {
-        $review = Review::all();
-        return view('review', compact('review'));
+        $feedbacks = Feedback::all();
+        return view('review', compact('feedbacks'));
     }
     
    public function destroy($id)
     {
-        $review = Review::find($id);
-        $review->delete();
+        $feedbacks = Feedback::find($id);
+        $feedbacks->delete();
        
         return redirect(route('review.index'));
     }
