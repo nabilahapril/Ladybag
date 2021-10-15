@@ -24,7 +24,7 @@
                                     <div class="callout callout-info">
                                         <small class="text-muted">Total Pendapatan</small>
                                         <br>
-                                        <strong class="h4">Rp {{ $payments }}</strong>
+                                        <strong class="h4">Rp {{number_format ($payments) }}</strong>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
