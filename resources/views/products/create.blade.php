@@ -56,7 +56,7 @@
                                
                                 <div class="form-group">
                                     <label for="file">Foto Produk</label>
-                                    <input type="file" name="file" class="form-control" value="{{ old('image') }}" >
+                                    <input type="file" name="file" class="form-control" value="{{ old('image') }}" required >
                                     <p class="text-danger">{{ $errors->first('image') }}</p>
                                 </div>
                                 <div class="form-group">
