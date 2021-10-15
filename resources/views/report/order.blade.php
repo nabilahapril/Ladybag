@@ -55,7 +55,7 @@
                                                     <tr>
                                                         <td>{{ $no }}</td>
                                             <td>
-                                                <label>Nama:</strong>{{$row->user->fullname}}
+                                                <label>Nama:</strong>{{$row->user->fullname}}</label><br>
                                                 <label><strong>Telp:</strong> {{ $row->phone }}</label><br>
                                                 <label><strong>Alamat:</strong> {{ $row->address }} - {{ $row->district->name }} </label>
                                             </td>
