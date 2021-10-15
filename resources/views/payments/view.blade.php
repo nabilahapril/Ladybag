@@ -55,7 +55,7 @@
                                                         <input type="hidden" name="payment_id" value="{{ $payment->id }}">
                                                        
                                                         <div class="input-group-append">
-                                                            <button class="btn btn-secondary" type="submit">Kirim</button>
+                                                            <button class="btn btn-secondary" type="submit">Lakukan Pengiriman</button>
                                                         </div>
                                                     </div>
                                                 </form>

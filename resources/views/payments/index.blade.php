@@ -33,9 +33,9 @@
                                 <div class="input-group mb-3 col-md-6 float-right">
                                     <select name="status_id" class="form-control mr-3">
                                         <option value="">Pilih Status</option>
-                                        <option value="1">Proses</option>
-                                        <option value="2">Dikirim</option>
-                                        <option value="3">Selesai</option>
+                                        <option value="1">Process</option>
+                                        <option value="2">Shipping</option>
+                                        <option value="3">Success</option>
                                     </select>
                                   
                                     <div class="input-group-append">
@@ -50,7 +50,6 @@
                                             <th>No</th>
                                             <th>Pelanggan</th>
                                             <th>Total</th>
-                                            <th>Tanggal</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -68,20 +67,21 @@
                                                 <label><strong>Alamat:</strong> {{ $row->address }} {{ $row->district->name }} </label>
                                             </td>
                                             <td>Rp {{ number_format($row->total) }}</td>
-                                            <td>{{ $row->created_at}}</td>
+                                            
                                             <td>
                                             {{ $row->status->status }} <br>
                                                
                                             </td>
                                             <td>
-                                            @if ($row->status_id == 2)
-                                            <a href="{{ route('payments.approve_payment', $row->id) }}" class="btn btn-primary btn-sm">Terima Pembayaran</a>
-                                            @endif
-                                            <a href="{{ route('payments.view', $row->cart_id) }}" class="btn btn-warning btn-sm">Lihat</a>
+                                           
                                                 <form action="{{ route('payments.destroy', $row->cart_id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                                    @if ($row->status_id == 2)
+                                            <a href="{{ route('payments.approve_payment', $row->id) }}" class="btn btn-primary btn-sm">Terima Pembayaran</a>
+                                            @endif
+                                            <a href="{{ route('payments.view', $row->cart_id) }}" class="btn btn-warning btn-sm">Lihat</a>
+                                                    
                                                 </form>
                                             </td>
                                         </tr>

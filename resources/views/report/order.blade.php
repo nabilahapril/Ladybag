@@ -45,7 +45,7 @@
                                             <th>No</th>
                                             <th>Pelanggan</th>
                                             <th>Subtotal</th>
-                                            <th>Tanggal</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -55,12 +55,12 @@
                                                     <tr>
                                                         <td>{{ $no }}</td>
                                             <td>
-                                                
+                                                <label>Nama:</strong>{{$row->user->fullname}}
                                                 <label><strong>Telp:</strong> {{ $row->phone }}</label><br>
                                                 <label><strong>Alamat:</strong> {{ $row->address }} - {{ $row->district->name }} </label>
                                             </td>
                                             <td>Rp {{ number_format($row->total) }}</td>
-                                            <td>{{ $row->created_at }}</td>
+                                           
                                         </tr>
                                         @empty
                                         <tr>
