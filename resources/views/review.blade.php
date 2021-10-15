@@ -52,7 +52,7 @@
                                                 <label><strong>Email:</strong> {{ $row->email }}</label>
                                             </td>
                                             <td> <label><strong>{{ $row->title}}</label><br>
-                                                 <label><strong>{{$row->review}]</label></td>
+                                                 <label><strong>{{$row->review}}</label></td>
                                             
                                            
                                             <td>
