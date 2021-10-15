@@ -36,6 +36,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
+                                            <th>Email</th>
                                             <th>Review</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -48,14 +49,15 @@
                                                     <tr>
                                                         <td>{{ $no }}</td>
                                             <td>
-                                            <label><strong>Nama:</strong> {{ $row->name }}</label><br>
+                                            <label><strong>Nama:</strong> {{ $row->name }}</label>
                                                 
                                             </td>
                                             <td>
                                             <label><strong>Email:</strong> {{ $row->email }}</label>
                                             </td>
                                             <td> <label><strong>Judul:</strong> {{ $row->title}}</label><br>
-                                                 <label><strong>Review:</strong> {{$row->review}}</label></td>
+                                                 <label><strong>Review:</strong> {{$row->review}}</label>
+                                                </td>
                                             
                                            
                                             <td>
@@ -64,7 +66,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                   
-                                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                                   <button class="btn btn-danger btn-sm">Hapus</button>
                                                 </form>
                                             </td>
                                         </tr>
