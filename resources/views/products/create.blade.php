@@ -56,8 +56,8 @@
                                
                                 <div class="form-group">
                                     <label for="file">Foto Produk</label>
-                                    <input type="file" name="file" class="form-control" value="{{ old('image') }}" required >
-                                    <p class="text-danger">{{ $errors->first('image') }}</p>
+                                    <input type="file" name="file" class="form-control" value="{{ old('model') }}" required >
+                                    <p class="text-danger">{{ $errors->first('model') }}</p>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-sm">Tambah</button>

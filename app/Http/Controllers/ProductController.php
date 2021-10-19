@@ -35,7 +35,7 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required|exists:categories,id',
             'price_cents' => 'required|integer',
-            'image' => 'required'
+            'model' => 'required'
         ]);
 
         $model = Cloudinary::upload($request->file('file')->getRealPath())->getSecurePath();
