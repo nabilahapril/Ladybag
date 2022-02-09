@@ -9,7 +9,6 @@ class Payment extends Model
     protected $guarded = [];
     public $timestamps = false;
 
- 
     public function district()
     {
         return $this->belongsTo(District::class);

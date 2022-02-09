@@ -34,6 +34,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['prefix' => 'reports'], function() {
         Route::get('/order', 'HomeController@orderReport')->name('report.order');
         Route::get('/order/pdf/{daterange}', 'HomeController@orderReportPdf')->name('report.order_pdf');
-       
+        Route::get('/order/excel/{daterange}', 'HomeController@orderReportExcel')->name('report.order_excel');
     });
 });

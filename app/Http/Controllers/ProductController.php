@@ -37,15 +37,18 @@ class ProductController extends Controller
             'price_cents' => 'required|integer'
         ]);
 
-        $model = Cloudinary::upload($request->file('file')->getRealPath())->getSecurePath();
-            $product = Product::create([
-                'name' => $request->name,
-                'slug' => $request->name,
-                'category_id' => $request->category_id,
-                'description' => $request->description,
-                'model' => $model,
-                'price_cents' => $request->price_cents,
-            ]);
+        $product = new Product;
+        $product->name = $request->input('name');
+        $product->slug = $request->input('name');
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('category_id');
+        $product->price_cents = $request->input('price_cents');
+        if($file = $request->file('model'))
+        {
+            $model = Cloudinary::upload($request->file('model')->getRealPath())->getSecurePath();
+            $product->model=$model;
+        }
+        $product->save();
             return redirect(route('product.index'))->with(['success' => 'Produk Baru Ditambahkan']);
     }
 
@@ -66,14 +69,17 @@ class ProductController extends Controller
         ]);
         
         $product = Product::find($id);
-        
-        $product->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'category_id' => $request->category_id,
-            'price_cents' => $request->price_cents,
-            
-        ]);
+        $product->name = $request->input('name');
+        $product->slug = $request->input('name');
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('category_id');
+        $product->price_cents = $request->input('price_cents');
+        if($file = $request->file('model'))
+        {
+            $model = Cloudinary::upload($request->file('model')->getRealPath())->getSecurePath();
+            $product->model=$model;
+        }
+        $product->save();
         return redirect(route('product.index'))->with(['success' => 'Data Produk Diperbaharui']);
     }
 

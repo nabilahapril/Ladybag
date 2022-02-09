@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <h5>Laporan Order Periode ({{ $date[0] }} - {{ $date[1] }})</h5>
+    <h5>Laporan Order Periode Tanggal ({{ $date[0] }} - {{ $date[1] }})</h5>
     <hr>
     <table width="100%" class="table-hover table-bordered">
         <thead>
@@ -22,20 +22,18 @@
         <tbody>
             @php $total = 0; @endphp
             <?php $no = 0;?>
-                                        @forelse ($payments as $row)
-                                        <?php $no++ ;?>
-                                                    <tr>
-                                                        <td>{{ $no }}</td>
-                                            
-                
+                    @forelse ($payments as $row)
+                    <?php $no++ ;?>
+                    <tr>
+                    <td>{{ $no }}</td>
                     <td>
                         <label><strong>Telp:</strong> {{ $row->phone }}</label><br>
                         <label><strong>Alamat:</strong> {{ $row->address }} {{ $row->district->name }}</label>
                     </td>
                     <td>Rp {{ number_format($row->subtotal) }}</td>
                     <td>{{ $row->created_at}}</td>
-                </tr>
-                @php $total += $row->total @endphp
+                    </tr>
+                    @php $total += $row->total @endphp
             @empty
             <tr>
                 <td colspan="6" class="text-center">Tidak ada data</td>

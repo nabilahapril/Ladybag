@@ -8,7 +8,7 @@
 <main class="main">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item active">Galeri</li>
+        <li class="breadcrumb-item active">Galeri-AdminPanel</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -48,7 +48,7 @@
                                
                                 <div class="form-group">
                                     <label for="file">Foto Produk</label>
-                                    <input type="file" name="file" class="form-control" value="{{ old('uploadedFileUrl') }}">
+                                    <input type="file" name="uploadedFileUrl" class="form-control" value="{{ old('uploadedFileUrl') }}">
                                     <p class="text-danger">{{ $errors->first('uploadedFileUrl') }}</p>
                                 </div>
                                 <div class="form-group">

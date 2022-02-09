@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use File;
 use App\Image;
 use App\Product;
 use Illuminate\Support\Str;
@@ -35,16 +34,17 @@ class ImageController extends Controller
             'product_id' => 'required|exists:products,id'
             
         ]);
-        
-        
-        $uploadedFileUrl = Cloudinary::upload($request->file('file')->getRealPath())->getSecurePath();
-            $image = Image::create([
-                'warna' => $request->warna,
-                'slug' => $request->warna,
-                'product_id' => $request->product_id,
-                'uploadedFileUrl' => $uploadedFileUrl
-            ]);
-            return redirect(route('image.index'))->with(['success' => 'Gambar Baru Ditambahkan']);
+        $image = new Image;
+        $image->warna = $request->input('warna');
+        $image->slug = $request->input('warna');
+        $image->product_id = $request->input('product_id');
+        if($file = $request->file('uploadedFileUrl'))
+        {
+            $uploadedFileUrl = Cloudinary::upload($request->file('uploadedFileUrl')->getRealPath())->getSecurePath();
+            $image->uploadedFileUrl=$uploadedFileUrl;
+        }
+        $image->save();
+        return redirect(route('image.index'))->with(['success' => 'Gambar Baru Ditambahkan']);
         
     }
 
@@ -63,11 +63,15 @@ class ImageController extends Controller
         ]);
 
         $image = Image::find($id);
-
-        $image->update([
-            'warna' => $request->warna,
-            'product_id' => $request->product_id,
-        ]);
+        $image->warna = $request->input('warna');
+        $image->slug = $request->input('warna');
+        $image->product_id = $request->input('product_id');
+        if($file = $request->file('uploadedFileUrl'))
+        {
+            $uploadedFileUrl = Cloudinary::upload($request->file('uploadedFileUrl')->getRealPath())->getSecurePath();
+            $image->uploadedFileUrl=$uploadedFileUrl;
+        }
+        $image->save();
         return redirect(route('image.index'))->with(['success' => 'Gambar Diperbaharui']);
     }
 

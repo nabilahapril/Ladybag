@@ -56,7 +56,7 @@
                                
                                 <div class="form-group">
                                     <label for="file">Foto Produk</label>
-                                    <input type="file" name="file" class="form-control" value="{{ old('model') }}"  >
+                                    <input type="file" name="model" class="form-control" value="{{ old('model') }}"  >
                                     <p class="text-danger">{{ $errors->first('model') }}</p>
                                 </div>
                                 <div class="form-group">
@@ -70,5 +70,11 @@
         </div>
     </div>
 </main>
+@endsection
+@section('js')
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 @endsection
 

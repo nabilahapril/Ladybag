@@ -30,12 +30,13 @@
                             @endif
 
                             <form action="{{ route('report.order') }}" method="get">
+                            <a target="_blank" class="btn btn-primary ml-2" id="exportpdf">Export PDF</a>
+                            <a target="_blank" class="btn btn-primary ml-2" id="exportexcel">Export Excel</a>
                                 <div class="input-group mb-3 col-md-4 float-right">
                                     <input type="text" id="created_at" name="date" class="form-control">
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="submit">Filter</button>
                                     </div>
-                                    <a target="_blank" class="btn btn-primary ml-2" id="exportpdf">Export PDF</a>
                                 </div>
                             </form>
                             <div class="table-responsive">
@@ -89,11 +90,13 @@
             let end = moment().endOf('month')
 
             $('#exportpdf').attr('href', '/reports/order/pdf/' + start.format('DD-MM-YYYY') + '+' + end.format('DD-MM-YYYY'))
+            $('#exportexcel').attr('href', '/reports/order/excel/' + start.format('DD-MM-YYYY') + '+' + end.format('DD-MM-YYYY'))
             $('#created_at').daterangepicker({
                 startDate: start,
                 endDate: end
             }, function(first, last) {
                 $('#exportpdf').attr('href', '/reports/order/pdf/' + first.format('DD-MM-YYYY') + '+' + last.format('DD-MM-YYYY'))
+                $('#exportexcel').attr('href', '/reports/order/excel/' + first.format('DD-MM-YYYY') + '+' + last.format('DD-MM-YYYY'))
             })
         })
     </script>

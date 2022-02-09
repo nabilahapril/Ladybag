@@ -11522,8 +11522,8 @@ canvas {
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0;
-  color: #fff;
-  background: #2f353a;
+  color: black;
+  background: #fff;
 }
 
 .sidebar .sidebar-close {
@@ -11599,7 +11599,7 @@ canvas {
   padding: 0.75rem 1rem;
   font-size: 80%;
   font-weight: 700;
-  color: #e4e7ea;
+  color: black;
   text-transform: uppercase;
 }
 
@@ -11629,7 +11629,7 @@ canvas {
 .sidebar .nav-link {
   display: block;
   padding: 0.75rem 1rem;
-  color: #fff;
+  color: black;
   text-decoration: none;
   background: transparent;
 }
@@ -11650,11 +11650,11 @@ canvas {
 
 .sidebar .nav-link.active {
   color: #fff;
-  background: #3a4248;
+  background: #20a8d8;
 }
 
 .sidebar .nav-link.active .nav-icon {
-  color: #20a8d8;
+  color: #fff;
 }
 
 .sidebar .nav-link:hover {

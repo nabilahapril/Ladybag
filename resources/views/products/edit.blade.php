@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Deskripsi</label>
-                                    <textarea name="description" id="description" rows="10" class="form-control">{{ $product->description }}</textarea>
+                                    <textarea name="description" id="description" class="form-control">{{ $product->description }}</textarea>
                                     <p class="text-danger">{{ $errors->first('description') }}</p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                     <br>
                                     <img src="{{$product->model}}"  width="100px" height="100px" alt="{{ $product->name }}">
                                     <hr>
-                                   
+                                    <input type="file" name="model" class="form-control" value="{{ old('model') }}"  >
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-sm">Update</button>
@@ -71,8 +71,15 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 </main>
+@endsection
+@section('js')
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 @endsection
 

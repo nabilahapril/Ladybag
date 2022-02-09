@@ -53,7 +53,7 @@
                                     <br>
                                     <img src="{{$image->uploadedFileUrl}}"  width="100px" height="100px" alt="{{ $image->warna }}">
                                     <hr>
-                                   
+                                    <input type="file" name="uploadedFileUrl" class="form-control" value="{{ old('uploadedFileUrl') }}">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-sm">Update</button>

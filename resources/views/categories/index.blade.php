@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="animated fadeIn">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Kategori Baru</h4>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">List Kategori</h4>
@@ -52,16 +52,19 @@
                                 <table class="table table-hover table-bordered">
                                     <thead>
                                         <tr>
+                                        <th>No</th>
                                             <th>Kategori</th>
-                                            <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($category as $val)
-                                        <tr>
+                                    <?php $no = 0;?>
+                                    @forelse ($category as $val)
+                                        <?php $no++ ;?>
+                                                    <tr>
+                                                        <td>{{ $no }}</td>
                                             <td><strong>{{ $val->name }}</strong></td>
-                                            <td>{{$val->created_at}}</td>
+                                           
                                             <td>
                                                 <form action="{{ route('category.destroy', $val->id) }}" method="post">
                                                     @csrf

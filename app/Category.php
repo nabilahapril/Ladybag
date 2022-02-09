@@ -9,8 +9,6 @@ class Category extends Model
 {
     protected $fillable = ['name', 'slug'];
 
-   
-
     public function getNameAttribute($value)
     {
         return ucfirst($value);
@@ -20,9 +18,6 @@ class Category extends Model
     {
         $this->attributes['slug'] = Str::slug($value);
     }
-
-  
-
     public function product()
     {
         return $this->hasMany(Product::class);
